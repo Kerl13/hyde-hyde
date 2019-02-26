@@ -41,4 +41,11 @@
 	{{ with .Site.Params.social.email }}
 	<a href="mailto:{{.}}" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
+	{{ $mattermost_domain := "mattermost.com" }}
+	{{ with .Site.Params.social.custom_mattermost_domain }}
+		{{ $mattermost_domain = . }}
+	{{ end }}
+	{{ with .Site.Params.social.mattermost }}
+	<a href="https://{{ $mattermost_domain }}/{{.}}" rel="me"><i class="fas fa-comments fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
 </section>
