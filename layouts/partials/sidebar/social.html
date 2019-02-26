@@ -13,8 +13,8 @@
 	{{ end }}
 	{{ with .Site.Params.social.gitlab }}
 	{{ $gitlab_domain := "gitlab.com" }}
-	{{ if isset .Site.Params.social.custom_gitlab_domain }}
-		$gitlab_domain = .Site.Params.social.custom_gitlab_domain
+	{{ with .Site.Params.social.custom_gitlab_domain }}
+		{{ $gitlab_domain = . }}
 	{{ end }}
 	<a href="https://{{ $gitlab_domain }}/{{.}}" rel="me"><i class="fab fa-gitlab fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
